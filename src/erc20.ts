@@ -22,9 +22,9 @@ export function handleTransfer(event: TransferEvent): void {
     event.transaction.hash.concatI32(event.logIndex.toI32())
   )
 
-  const from = event.params.from
-  const to = event.params.to
-  const value = event.params.value
+  let from = event.params.from
+  let to = event.params.to
+  let value = event.params.value
 
   entity.from = from
   entity.to = to
@@ -33,7 +33,6 @@ export function handleTransfer(event: TransferEvent): void {
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
   entity.transactionHash = event.transaction.hash
-
   entity.save()
 
   let fromUser = getUser(from)

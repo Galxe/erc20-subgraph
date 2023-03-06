@@ -8,7 +8,7 @@ type Transfer @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type User @entity(immutable: false) {
+type User @entity {
   id: Bytes!
   balance: BigInt!
 }
